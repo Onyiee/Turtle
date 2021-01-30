@@ -69,35 +69,35 @@ public class Turtle {
                 break;
             }
             case PEN_DOWN: {
-                int[][] floor = sketchpad.getFloor();
-                switch (currentDirection){
+                char[][] floor = sketchpad.getFloor();
+                switch (currentDirection) {
                     case EAST: {
                         int positionAfterLoop = numberOfMoves + currentColumn;
-                        for (int column = currentColumn; column <= positionAfterLoop; column++){
+                        for (int column = currentColumn; column <= positionAfterLoop; column++) {
                             floor[currentRow][column] = 1;
                         }
                         currentPosition.setColumnPosition(positionAfterLoop);
                         break;
                     }
-                    case WEST:{
+                    case WEST: {
                         int positionAfterLoop = currentColumn - numberOfMoves;
-                        for (int column = currentColumn; column >= positionAfterLoop; column--){
+                        for (int column = currentColumn; column >= positionAfterLoop; column--) {
                             floor[currentRow][column] = 1;
                         }
                         currentPosition.setColumnPosition(positionAfterLoop);
                         break;
                     }
-                    case SOUTH:{
-                        int positionAfterLoop = numberOfMoves + currentColumn;
-                        for (int row = currentRow; row <= positionAfterLoop; row++){
+                    case SOUTH: {
+                        int positionAfterLoop = numberOfMoves + currentRow;
+                        for (int row = currentRow; row <= positionAfterLoop; row++) {
                             floor[row][currentColumn] = 1;
                         }
                         currentPosition.setRowPosition(positionAfterLoop);
                         break;
                     }
-                    case NORTH:{
+                    case NORTH: {
                         int positionAfterLoop = currentRow - numberOfMoves;
-                        for (int row = currentRow; row >= positionAfterLoop; row--){
+                        for (int row = currentRow; row >= positionAfterLoop; row--) {
                             floor[row][currentColumn] = 1;
                         }
                         currentPosition.setRowPosition(positionAfterLoop);
@@ -109,7 +109,6 @@ public class Turtle {
         }
 
     }
-
 
 
     public void setCurrentPosition(Position position) {
@@ -148,5 +147,9 @@ public class Turtle {
             }
         }
 
+    }
+
+    public void displayFloor(Sketchpad sketchpad) {
+        sketchpad.displayFloor();
     }
 }
