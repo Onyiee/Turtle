@@ -34,7 +34,7 @@ class TurtleTest {
         assertEquals(turtle.getPen().getPenOrientation(), PenOrientation.PEN_DOWN);
     }
 
-    @Test
+       @Test
     void turtlePen_CanBeSetToUp(){
         turtle.getPen().setPenOrientation(PenOrientation.PEN_UP);
         assertEquals(turtle.getPen().getPenOrientation() ,PenOrientation.PEN_UP);
@@ -173,6 +173,25 @@ class TurtleTest {
             assertEquals(1, sketchpad.getFloor()[rows][0]);
         }
         assertEquals(new Position(6, 0),turtle.getCurrentPosition());
+    }
+
+    @Test
+    void turtleCanDisplayFloor(){
+        turtle.setCurrentDirection(CurrentDirection.EAST);
+        turtle.getPen().setPenOrientation(PenOrientation.PEN_DOWN);
+        turtle.setCurrentPosition(new Position(0,0));
+        int numberOfSteps = 5;
+        turtle.move(sketchpad, numberOfSteps);
+        turtle.turnRight();
+        turtle.move(sketchpad, numberOfSteps);
+        turtle.turnRight();
+        turtle.move(sketchpad, numberOfSteps);
+        turtle.turnRight();
+        turtle.move(sketchpad, numberOfSteps);
+        turtle.turnRight();
+        turtle.move(sketchpad,numberOfSteps);
+        turtle.displayFloor(sketchpad);
+
     }
 
 
